@@ -6,6 +6,37 @@
     <title>Sign Up</title>
   </head>
   <body>
-    <h1>Sign Up</h1>
+    <section class="form-container">
+      <!-- Sign Up Form -->
+      <form action="/signup" method="POST">
+        <h2>Sign Up</h2>
+        <label for="fullName">Full name:</label>
+        <input
+          type="fullName"
+          class="form-input"
+          id="fullName"
+          name="fullName"
+        />
+        <label for="email">Email:</label>
+        <input type="email" class="form-input" id="email" name="email" />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          class="form-input"
+          id="password"
+          name="password"
+        />
+        <label for="confirmPassword">Confirm password:</label>
+        <input
+          type="password"
+          class="form-input"
+          id="confirmPassword"
+          name="confirmPassword"
+        />
+        <button type="submit">Log In</button>
+        <hr />
+        <p>Already have an account? <a href="/login">Log In</a></p>
+      </form>
+    </section>
   </body>
 </html>

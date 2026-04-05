@@ -1,9 +1,9 @@
 // Dependencies
 import express from "express";
 import path from "node:path";
+import session from "express-session";
 import passport from "passport";
 import passportConfig from "./config/passport.js";
-import session from "express-session";
 import "dotenv/config";
 import authRouter from "./routes/authRoutes.js";
 import fileRouter from "./routes/fileRoutes.js";
@@ -18,6 +18,17 @@ const __dirname = path.dirname(__filename);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  }),
+);
 
 passportConfig(passport);
 app.use(passport.initialize());

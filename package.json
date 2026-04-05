@@ -9,13 +9,13 @@
     "migrate": "prisma migrate dev"
   },
   "repository": {
-    "type": "module",
+    "type": "git",
     "url": "git+https://github.com/ArtemiiHH/file-uploader.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/ArtemiiHH/file-uploader/issues"
   },

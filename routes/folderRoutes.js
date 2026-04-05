@@ -1,4 +1,5 @@
-const { Router } = require("express");
-const folder = Router();
+import { Router } from "express";
 
-module.exports = folder;
+const folderRouter = Router();
+
+export default folderRouter;

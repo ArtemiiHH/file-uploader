@@ -1,38 +1,31 @@
 // Dependencies
-const express = require("express");
-const app = express();
-const path = require("node:path");
-const passport = require("passport");
-const session = require("express-session");
-require("dotenv").config();
+import express from "express";
+import path from "node:path";
+import passport from "passport";
+import session from "express-session";
+import "dotenv/config";
+import authRouter from "./routes/authRoutes.js";
+import fileRouter from "./routes/fileRoutes.js";
+import folderRouter from "./routes/folderRoutes.js";
+import { fileURLToPath } from "node:url";
 
-// Import Routers
-const authRouter = require("./routes/authRoutes");
-const fileRouter = require("./routes/fileRoutes");
-const folderRouter = require("./routes/folderRoutes");
+const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Set EJS as template engine
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-// Read static files from public
 app.use(express.static("public"));
 
-// Add root redirect
-app.get("/", (req, res) => {
-  res.redirect("/login");
-});
-
-// Set routes
+// Add root redirect (Routes)
+app.get("/", (req, res) => res.redirect("/login"));
 app.use("/", authRouter);
 app.use("/", fileRouter);
 app.use("/", folderRouter);
 
 // Server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, (err) => {
-  if (err) {
-    throw err;
-  }
-
+app.listen(PORT, () => {
   console.log(`Server running on localhost:${PORT}`);
 });

@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev"
   },
   "repository": {
-    "type": "git",
+    "type": "module",
     "url": "git+https://github.com/ArtemiiHH/file-uploader.git"
   },
   "keywords": [],
@@ -27,7 +29,9 @@
     "express-session": "^1.19.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "pg": "^8.20.0",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
     "prisma": "^7.6.0"
   }
 }

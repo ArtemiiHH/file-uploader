@@ -1,7 +1,14 @@
 .view-window {
   border: 1px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .view-window div {
-  height: 100px;
+  border: 1px solid black;
+  height: 200px;
+  width: 300px;
 }

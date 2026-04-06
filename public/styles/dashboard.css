@@ -8,7 +8,6 @@ body {
 .dashboard-container {
   display: flex;
   flex-direction: column;
-  /* flex: 1; */
   min-height: 0;
 }
 
@@ -16,7 +15,6 @@ body {
 header {
   flex-shrink: 0;
   position: sticky;
-  /* top: 0; */
   z-index: 1;
 }
 
@@ -28,13 +26,8 @@ header {
   min-height: 0;
 }
 
-aside {
-  padding: 20px;
-}
-
 /* Main Content */
-.view-window {
-  flex: 1;
+main {
   overflow-y: auto;
   min-height: 0;
 }

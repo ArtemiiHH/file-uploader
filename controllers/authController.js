@@ -15,6 +15,16 @@ async function renderSignUpForm(req, res) {
 async function renderDashboard(req, res) {
   res.render("dashboard");
 }
+// Log Out (GET)
+async function renderLogOut(req, res, next) {
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+
+    res.redirect("/");
+  });
+}
 
 // FORM SUBMISSION
 // Handle Sign Up Form Submission (POST)
@@ -46,5 +56,6 @@ export default {
   renderLogInForm,
   renderSignUpForm,
   renderDashboard,
+  renderLogOut,
   handleSignUpForm,
 };

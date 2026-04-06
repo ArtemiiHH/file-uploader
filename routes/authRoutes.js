@@ -6,6 +6,7 @@ const authRouter = Router();
 
 // Render Pages
 authRouter.get("/login", authController.renderLogInForm);
+authRouter.get("/logout", authController.renderLogOut);
 authRouter.get("/signup", authController.renderSignUpForm);
 authRouter.get("/dashboard", authController.renderDashboard);
 

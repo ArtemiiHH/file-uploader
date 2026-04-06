@@ -4,8 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/dashboard.css" />
   </head>
   <body>
-    <h1>Dashboard</h1>
+    <!-- Dashboard -->
+    <section class="dashboard-container">
+      <!-- Header -->
+      <%- include('header') %>
+
+      <!-- Main -->
+      <main>
+        <!-- Sidebar -->
+        <%- include('sidebar') %>
+
+        <!-- View Window -->
+        <%- include('viewWindow') %>
+      </main>
+
+      <!-- Footer -->
+      <%- include('footer') %>
+    </section>
   </body>
 </html>

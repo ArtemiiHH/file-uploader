@@ -2,4 +2,10 @@ header {
   display: flex;
   justify-content: space-between;
   border: 1px solid black;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }

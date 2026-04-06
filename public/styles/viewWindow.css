@@ -1,3 +1,7 @@
 .view-window {
   border: 1px solid black;
 }
+
+.view-window div {
+  height: 100px;
+}

@@ -8,19 +8,17 @@
     <link rel="stylesheet" href="/styles/dashboard.css" />
   </head>
   <body>
-    <!-- Dashboard -->
     <section class="dashboard-container">
       <!-- Header -->
       <%- include('header') %>
 
-      <!-- Main -->
-      <main>
-        <!-- Sidebar -->
+      <!-- Body Row: Sidebar + Content -->
+      <div class="dashboard-body">
         <%- include('sidebar') %>
 
-        <!-- View Window -->
-        <%- include('viewWindow') %>
-      </main>
+        <!-- Content -->
+        <main class="view-window"><%- include('viewWindow') %></main>
+      </div>
 
       <!-- Footer -->
       <%- include('footer') %>

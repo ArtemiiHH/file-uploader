@@ -17,7 +17,6 @@ authRouter.post(
   passport.authenticate("local", {
     successRedirect: "/dashboard",
     failureRedirect: "/login",
-    failureMessage: true,
   }),
 );
 authRouter.post("/signup", authController.handleSignUpForm);

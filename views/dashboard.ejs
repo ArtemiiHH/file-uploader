@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/styles/dashboard.css" />
   </head>
   <body>
-    <section class="dashboard-container">
+    <% if (user) { %>
+      <section class="dashboard-container">
       <!-- Header -->
       <%- include('header') %>
 
@@ -23,5 +24,8 @@
       <!-- Footer -->
       <%- include('footer') %>
     </section>
+    <% } else { %>
+      <h1>404 error</h1>
+    <% } %>
   </body>
 </html>

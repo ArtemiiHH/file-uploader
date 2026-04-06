@@ -7,7 +7,6 @@ const authRouter = Router();
 
 // Render Pages
 authRouter.get("/login", authController.renderLogInForm);
-authRouter.get("/logout", authController.renderLogOut);
 authRouter.get("/signup", authController.renderSignUpForm);
 authRouter.get(
   "/dashboard",
@@ -24,6 +23,7 @@ authRouter.post(
     failureRedirect: "/login",
   }),
 );
+authRouter.post("/logout", authController.renderLogOut);
 authRouter.post("/signup", authController.handleSignUpForm);
 
 export default authRouter;

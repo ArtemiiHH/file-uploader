@@ -19,11 +19,11 @@ async function renderDashboard(req, res) {
 // Log Out (GET)
 async function renderLogOut(req, res, next) {
   req.logout((err) => {
-    if (err) {
-      return next(err);
-    }
-
-    res.redirect("/");
+    if (err) return next(err);
+    // Destroy session when user logs out
+    req.session.destroy(() => {
+      res.redirect("/login");
+    });
   });
 }
 

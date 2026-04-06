@@ -16,17 +16,18 @@ async function renderSignUpForm(req, res) {
 async function handleSignUpForm(req, res) {
   try {
     // Destructure input data
-    const { email, password, confirmPassword } = req.body;
+    const { fullName, email, password, confirmPassword } = req.body;
     if (password !== confirmPassword) {
-      res.send("Passwords must match");
+      res.redirect("/signup");
     }
     const hashedPassword = await bcrypt.hash(password, 10);
     await prisma.user.create({
-      data: { email: email, password: hashedPassword },
+      data: { fullName: fullName, email: email, password: hashedPassword },
     });
+    res.redirect("/login");
   } catch (error) {
     console.error(error);
-    res.status(500).status("Error registering user");
+    res.status(500).send("Error registering user");
   }
 }
 

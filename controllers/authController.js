@@ -17,15 +17,21 @@ async function handleSignUpForm(req, res) {
   try {
     // Destructure input data
     const { fullName, email, password, confirmPassword } = req.body;
+
     if (password !== confirmPassword) {
-      res.redirect("/signup");
+      return res.redirect("/signup");
     }
+
     const hashedPassword = await bcrypt.hash(password, 10);
     await prisma.user.create({
-      data: { fullName: fullName, email: email, password: hashedPassword },
+      data: { fullName, email, password: hashedPassword },
     });
     res.redirect("/login");
   } catch (error) {
+    // Handle duplicate email
+    if (error.code === "P2002") {
+      return res.status(400).send("Email already in use");
+    }
     console.error(error);
     res.status(500).send("Error registering user");
   }

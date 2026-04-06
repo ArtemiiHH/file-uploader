@@ -4,11 +4,16 @@ import bcrypt from "bcrypt";
 // RENDER FORMS
 // Render Log In Form (GET)
 async function renderLogInForm(req, res) {
-  res.render("logInForm");
+  const message = req.session.messages?.[0] || null;
+  res.render("logInForm", { message });
 }
 // Render Sign Up Form (GET)
 async function renderSignUpForm(req, res) {
   res.render("signUpForm");
+}
+// Render Dashboard (GET)
+async function renderDashboard(req, res) {
+  res.render("dashboard");
 }
 
 // FORM SUBMISSION
@@ -37,4 +42,9 @@ async function handleSignUpForm(req, res) {
   }
 }
 
-export default { renderLogInForm, renderSignUpForm, handleSignUpForm };
+export default {
+  renderLogInForm,
+  renderSignUpForm,
+  renderDashboard,
+  handleSignUpForm,
+};

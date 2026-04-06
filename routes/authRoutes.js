@@ -1,6 +1,7 @@
 import { Router } from "express";
 import passport from "passport";
 import authController from "../controllers/authController.js";
+import ensureAuthenticated from "../middleware/ensureAuthenticated.js";
 
 const authRouter = Router();
 
@@ -8,7 +9,11 @@ const authRouter = Router();
 authRouter.get("/login", authController.renderLogInForm);
 authRouter.get("/logout", authController.renderLogOut);
 authRouter.get("/signup", authController.renderSignUpForm);
-authRouter.get("/dashboard", authController.renderDashboard);
+authRouter.get(
+  "/dashboard",
+  ensureAuthenticated,
+  authController.renderDashboard,
+);
 
 // Handle Forms
 // Authenticate Log In

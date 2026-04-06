@@ -9,6 +9,7 @@ import authRouter from "./routes/authRoutes.js";
 import fileRouter from "./routes/fileRoutes.js";
 import folderRouter from "./routes/folderRoutes.js";
 import { fileURLToPath } from "node:url";
+import ensureAuthenticated from "./middleware/ensureAuthenticated.js";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -36,8 +37,8 @@ app.use(passport.session());
 // Add root redirect (Routes)
 app.get("/", (req, res) => res.redirect("/login"));
 app.use("/", authRouter);
-app.use("/", fileRouter);
-app.use("/", folderRouter);
+app.use("/", ensureAuthenticated, fileRouter);
+app.use("/", ensureAuthenticated, folderRouter);
 
 // Server
 const PORT = process.env.PORT || 3000;

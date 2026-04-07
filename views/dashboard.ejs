@@ -27,5 +27,34 @@
     <% } else { %>
       <h1>404 error</h1>
     <% } %>
+
+    <!-- Modal Boxes -->
+    <!-- Folder Modal -->
+    <div class="modal-container">
+      <div class="modal" id="folderModal">
+        <form action="/folders/new">
+          <div class="title-x-group">
+            <h2>New folder</h2>
+            <p>X</p>
+          </div>
+          <input type="text" placeholder="Folder Name">
+          <button type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- File Modal -->
+    <div class="modal-container">
+      <div class="modal" id="fileModal">
+        <form action="/files/new">
+          <div class="title-x-group">
+            <h2>New file</h2>
+            <p>X</p>
+          </div>
+          <input type="file" placeholder="File">
+          <button type="submit">Upload</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

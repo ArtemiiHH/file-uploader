@@ -36,3 +36,9 @@ main {
 footer {
   flex-shrink: 0;
 }
+
+.modal-container {
+  display: none;
+  height: 100%;
+  width: auto;
+}

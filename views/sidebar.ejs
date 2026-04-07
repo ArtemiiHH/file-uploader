@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sidebar</title>
     <link rel="stylesheet" href="/styles/sidebar.css" />
+    <link rel="stylesheet" href="/styles/dashboard.css" />
+    <script src="/js/modal.js" defer></script>
   </head>
   <body>
     <!-- Sidebar -->
     <aside>
       <!-- New folder/file Btns -->
       <div class="add-new-btns">
-        <a href="/folders">
-          <button class="new-folder-btn">+ New folder</button>
-        </a>
-        <a href="/file/upload">
-          <button class="new-file-btn">+ New file</button>
-        </a>
+        <button id="newFolderBtn" class="newFolderBtn">+ New folder</button>
+        <button id="newFileBtn" class="newFileBtn">+ New file</button>
       </div>
 
       <!-- Side Menu -->

@@ -42,3 +42,11 @@ footer {
   height: 100%;
   width: auto;
 }
+
+.modal-container-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: auto;
+}

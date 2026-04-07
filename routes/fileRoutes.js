@@ -1,7 +1,8 @@
 import { Router } from "express";
-import fileController from "../controllers/fileController";
+import fileController from "../controllers/fileController.js";
+
 const fileRouter = Router();
 
-fileController.post("/files/upload", fileController.uploadFile);
+fileRouter.post("/files/upload", fileController.uploadFile);
 
 export default fileRouter;

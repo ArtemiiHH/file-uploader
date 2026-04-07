@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="/styles/styles.css" />
     <link rel="stylesheet" href="/styles/dashboard.css" />
+    <script src="/js/modal.js"></script>
   </head>
   <body>
     <% if (user) { %>
@@ -35,10 +36,10 @@
         <form action="/folders" method="POST">
           <div class="title-x-group">
             <h2>New folder</h2>
-            <p>X</p>
+            <button class="close-btn">X</button>
           </div>
           <input type="text" placeholder="Folder Name">
-          <button type="submit">Create</button>
+          <button type="submit" class="newFolderBtn">Create</button>
         </form>
       </div>
     </div>
@@ -49,10 +50,10 @@
         <form action="/files/upload" method="POST">
           <div class="title-x-group">
             <h2>New file</h2>
-            <p>X</p>
+            <button class="close-btn">X</button>
           </div>
           <input type="file" placeholder="File">
-          <button type="submit">Upload</button>
+          <button type="submit" class="newFileBtn">Upload</button>
         </form>
       </div>
     </div>

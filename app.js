@@ -10,6 +10,7 @@ import fileRouter from "./routes/fileRoutes.js";
 import folderRouter from "./routes/folderRoutes.js";
 import { fileURLToPath } from "node:url";
 import ensureAuthenticated from "./middleware/ensureAuthenticated.js";
+import multer from "multer";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);

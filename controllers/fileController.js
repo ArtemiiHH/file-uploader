@@ -1,7 +1,36 @@
-import prisma from "../lib/prisma";
+import prisma from "../lib/prisma.js";
 import cloudinary from "../config/cloudinary.js";
 
 // Upload File
-async function uploadFile(req, res) {}
+async function uploadFile(req, res) {
+  console.log("req.file:", req.file);
+  console.log("req.body:", req.body);
+  try {
+    // Upload buffer to Cloudinary
+    const result = await new Promise((resolve, reject) => {
+      cloudinary.uploader
+        .upload_stream({ folder: "file-uploader" }, (error, result) => {
+          if (error) reject(error);
+          else resolve(result);
+        })
+        .end(req.file.buffer);
+    });
+
+    // Save Cloudinary URL to DB
+    await prisma.file.create({
+      data: {
+        filename: req.file.originalname,
+        storagePath: result.secure_url,
+        mimetype: req.file.mimetype,
+        size: req.file.size,
+        userId: req.user.id,
+        folderId: req.body.folderId ? parseInt(req.body.folderId) : null,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error uploading file");
+  }
+}
 
 export default { uploadFile };

@@ -55,3 +55,26 @@ footer {
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 100;
 }
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.9rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.toast-success {
+  background: #4caf50;
+}
+.toast-error {
+  background: #f44336;
+}
+
+.toast-fade {
+  opacity: 0;
+}

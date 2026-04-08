@@ -10,6 +10,7 @@ import fileRouter from "./routes/fileRoutes.js";
 import folderRouter from "./routes/folderRoutes.js";
 import { fileURLToPath } from "node:url";
 import ensureAuthenticated from "./middleware/ensureAuthenticated.js";
+import flash from "connect-flash";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -21,6 +22,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(flash());
 
 app.use(
   session({

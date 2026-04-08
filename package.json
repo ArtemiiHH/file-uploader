@@ -25,6 +25,7 @@
     "@prisma/client": "^7.6.0",
     "bcrypt": "^6.0.0",
     "cloudinary": "^2.9.0",
+    "connect-flash": "^0.1.1",
     "dotenv": "^17.4.0",
     "ejs": "^5.0.1",
     "express": "^5.2.1",

@@ -27,8 +27,10 @@ async function uploadFile(req, res) {
         folderId: req.body.folderId ? parseInt(req.body.folderId) : null,
       },
     });
+
+    res.redirect("/dashboard");
   } catch (error) {
-    console.error(error);
+    console.error("Full error: ", error);
     res.status(500).send("Error uploading file");
   }
 }

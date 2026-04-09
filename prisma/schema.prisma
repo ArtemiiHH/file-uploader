@@ -30,14 +30,12 @@ model Folder {
 }
 
 model File {
-  id          Int      @id @default(autoincrement())
-  filename    String
-  storagePath String
-  mimetype    String?
-  size        Int?
-  userId      Int
-  user        User     @relation(fields: [userId], references: [id])
-  folderId    Int?
-  folder      Folder?  @relation(fields: [folderId], references: [id])
-  createdAt   DateTime @default(now())
+  id        Int      @id @default(autoincrement())
+  filename  String
+  url       String
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  folderId  Int?
+  folder    Folder?  @relation(fields: [folderId], references: [id])
+  createdAt DateTime @default(now())
 }

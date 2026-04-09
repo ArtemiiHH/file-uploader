@@ -13,8 +13,11 @@ async function renderSignUpForm(req, res) {
 }
 // Render Dashboard (GET)
 async function renderDashboard(req, res) {
-  const user = req.user;
-  res.render("dashboard", { user });
+  res.render("dashboard", {
+    user: req.user,
+    success: req.flash("success"),
+    error: req.flash("error"),
+  });
 }
 // Log Out (GET)
 async function renderLogOut(req, res, next) {

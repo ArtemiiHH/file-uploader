@@ -28,10 +28,10 @@ async function uploadFile(req, res) {
       },
     });
 
-    req.flash("error", "File uploaded file");
+    req.flash("success", "File uploaded successfully");
     res.redirect("/dashboard");
   } catch (error) {
-    console.error("Full error: ", error);
+    req.flash("error", "Error uploading file");
     res.redirect("/dashboard");
   }
 }

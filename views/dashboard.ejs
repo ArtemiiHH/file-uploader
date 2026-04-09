@@ -11,8 +11,25 @@
     <link rel="stylesheet" href="/styles/viewWindow.css" />
     <link rel="stylesheet" href="/styles/sidebar.css" />
     <script src="/js/modal.js" defer></script>
+    <script src="/js/toast.js"></script>
   </head>
   <body>
+    <!-- Show Toast Notification -->
+    <% if (success && success.length) { %>
+      <div class="toast-container">
+        <div class="toast-success">
+          <h3>File uploaded!</h3>
+        </div>
+      </div>
+    <% } %>
+    <% if (error && error.length) { %>
+      <div class="toast-container">
+        <div class="toast-error">
+          <h3>Error uploading file!</h3>
+        </div>
+      </div>
+    <% } %>
+
     <% if (user) { %>
       <section class="dashboard-container">
       <!-- Header -->

@@ -52,35 +52,77 @@ footer {
   height: 100%;
   width: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
   z-index: 100;
 }
 
+/* Container to hold stacked toasts (optional if you want multiple toasts) */
 .toast-container {
+  position: fixed;
+  top: 20px;
+  left: 50%; /* center horizontally */
+  transform: translateX(-50%); /* truly center */
   display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 100;
+  flex-direction: column;
+  gap: 10px; /* space between multiple toasts */
+  z-index: 9999;
 }
 
+/* Toast element */
+.toast {
+  min-width: 250px;
+  padding: 15px 20px;
+  border-radius: 12px;
+
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  color: white;
+  border-left: 5px solid;
+  opacity: 0; /* start hidden */
+  transform: translateY(-100%); /* start offscreen top */
+  animation: slide-in 0.5s forwards;
+  text-align: center;
+}
+
+/* Success/Error borders */
 .toast-success {
-  height: auto;
-  width: auto;
-  padding: 20px;
-  border: 5px solid #4caf50;
-  background-color: rgba(0, 128, 0, 0.4);
-}
-.toast-error {
-  height: auto;
-  width: auto;
-  padding: 20px;
-  border: 5px solid red;
-  background-color: rgba(255, 0, 0, 0.4);
+  border-color: #4caf50;
+  color: #4caf50;
 }
 
+.toast-error {
+  border-color: red;
+  color: red;
+}
+
+/* Slide in from top */
+@keyframes slide-in {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Slide out to top */
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Trigger slide out */
 .toast-fade {
-  opacity: 0;
+  animation: slide-out 0.3s forwards;
 }

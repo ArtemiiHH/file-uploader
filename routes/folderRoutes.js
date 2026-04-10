@@ -4,5 +4,6 @@ import folderController from "../controllers/folderController.js";
 const folderRouter = Router();
 
 folderRouter.post("/folders/new", folderController.createFolder);
+folderRouter.post("/folders/:id", folderController.renderFolder);
 
 export default folderRouter;

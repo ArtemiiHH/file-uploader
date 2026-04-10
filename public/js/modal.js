@@ -32,7 +32,7 @@ document.querySelectorAll(".modal-container").forEach((container) => {
 
 // FOLDER DOUBLE CLICK
 document.querySelectorAll(".folder-card").forEach((folder) => {
-  folder.addEventListener("dbclick", () => {
+  folder.addEventListener("dblclick", () => {
     const folderId = folder.dataset.id;
     window.location.href = `/folders/${folderId}`;
   });

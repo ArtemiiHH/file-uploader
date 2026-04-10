@@ -22,4 +22,31 @@ async function createFolder(req, res) {
   }
 }
 
-export default { createFolder };
+// Render nested folder
+async function renderFolder(req, res) {
+  const folderId = parseInt(req.params.id);
+
+  const files = await prisma.file.findMany({
+    where: {
+      userId: req.user.id,
+      folderId: folderId,
+    },
+  });
+
+  const folders = await prisma.folder.findMany({
+    where: {
+      userId: req.user.id,
+      parentId: folderId,
+    },
+  });
+
+  res.render("dashboard", {
+    user: req.user,
+    files,
+    folders,
+    success: req.flash("success"),
+    error: req.flash("error"),
+  });
+}
+
+export default { createFolder, renderFolder };

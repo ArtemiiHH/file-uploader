@@ -2,9 +2,13 @@
 <section class="view-window">
 
   <!-- File -->
-  <% files.forEach(file => { %>
-    <div class="file-card">
-      <p><%= file.filename %></p>
-    </div>
-  <% }) %>
+  <% if (files.length === 0) { %>
+    <h3>No files added yet. Click "new" to add files</h3>
+  <% } else { %>
+    <% files.forEach(file => { %>
+      <div class="file-card">
+        <p><%= file.filename %></p>
+      </div>
+    <% }) %>
+  <% } %>
 </section>

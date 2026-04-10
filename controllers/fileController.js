@@ -19,12 +19,7 @@ async function uploadFile(req, res) {
     // Save Cloudinary URL to DB
     await prisma.file.create({
       data: {
-        filename: req.file.originalname,
         url: result.secure_url,
-        mimetype: req.file.mimetype,
-        size: req.file.size,
-        userId: req.user.id,
-        folderId: req.body.folderId ? parseInt(req.body.folderId) : null,
       },
     });
 
@@ -38,5 +33,14 @@ async function uploadFile(req, res) {
 
 // Create file
 async function createFile(req, res) {}
+
+// Delete file
+async function deleteFile(req, res) {}
+
+// Download file
+async function downloadFile(req, res) {}
+
+// Delete file
+async function viewFileDetails(req, res) {}
 
 export default { uploadFile, createFile };

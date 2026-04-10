@@ -17,9 +17,14 @@ async function renderDashboard(req, res) {
     where: { userId: req.user.id },
   });
 
+  const folders = await prisma.folder.findMany({
+    where: { userId: req.user.id },
+  });
+
   res.render("dashboard", {
     user: req.user,
     files: files,
+    folders: folders,
     success: req.flash("success"),
     error: req.flash("error"),
   });

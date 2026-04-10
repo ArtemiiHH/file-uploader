@@ -9,7 +9,7 @@ async function createFolder(req, res) {
       data: {
         foldername: folder,
         userId: req.user.id,
-        parentId: req.user.parentId,
+        parentId: null,
       },
     });
 

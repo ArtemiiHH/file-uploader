@@ -22,7 +22,6 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(flash());
 
 app.use(
   session({
@@ -35,6 +34,7 @@ app.use(
 passportConfig(passport);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 // Add root redirect (Routes)
 app.get("/", (req, res) => res.redirect("/login"));

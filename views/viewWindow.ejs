@@ -1,24 +1,19 @@
-<!-- View Window -->
 <section class="view-window">
-
-  <!-- File -->
-  <% if (files.length === 0) { %>
-    <h3>Nothing added yet. Click "new" to add files</h3>
+  <% if (files.length === 0 && folders.length === 0) { %>
+    <h3>Nothing added yet. Click "new" to add files or folders.</h3>
   <% } else { %>
-    <% files.forEach(file => { %>
-      <div class="file-card">
-        <p><%= file.filename %></p>
-      </div>
-    <% }) %>
-  <% } %>
 
-  <!-- Folder -->
-  <% if (folders.length === 0) { %>
-    <h3>Nothing added yet. Click "new" to add files</h3>
-  <% } else { %>
+    <!-- Folders -->
     <% folders.forEach(folder => { %>
       <div class="folder-card">
         <p><%= folder.foldername %></p>
+      </div>
+    <% }) %>
+
+    <!-- Files -->
+    <% files.forEach(file => { %>
+      <div class="file-card">
+        <p><%= file.filename %></p>
       </div>
     <% }) %>
   <% } %>

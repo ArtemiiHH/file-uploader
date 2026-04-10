@@ -13,7 +13,7 @@
     <!-- Files -->
     <% files.forEach(file => { %>
       <div class="file-card">
-        <p><%= file.filename %></p>
+        <a href="<%= file.url %>" target="_blank"><%= file.filename %></a>
       </div>
     <% }) %>
   <% } %>

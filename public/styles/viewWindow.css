@@ -2,25 +2,32 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: flex-start;
   gap: 20px;
   padding: 20px;
-  min-height: 100vh;
+  min-height: auto;
 }
 
 /* Folders/Files */
 .folder-card,
 .file-card {
-  background-color: rgb(237, 237, 237);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   border-radius: 20px;
   height: fit-content;
-  width: 200px;
+  width: 150px;
   padding: 20px;
   cursor: pointer;
 }
 
+.folder-card:hover,
+.file-card:hover {
+  background-color: rgb(237, 237, 237);
+}
+
 .file-icon {
-  font-size: 4rem;
-  text-align: center;
-  height: 100%;
-  padding: 20px;
+  font-size: 5rem;
 }

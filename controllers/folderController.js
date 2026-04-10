@@ -9,12 +9,17 @@ async function createFolder(req, res) {
       data: {
         foldername: folder,
         userId: req.user.id,
-        parentId: null,
+        parentId: req.params.parentId ? parseInt(req.params.parentId) : null,
       },
     });
 
     req.flash("success", "Folder created successfully");
-    res.redirect("/dashboard");
+
+    const redirectTo = req.params.parentId
+      ? `/folders/${req.params.parentId}`
+      : "dashboard";
+
+    res.redirect(redirectTo);
   } catch (error) {
     console.error("Upload error: ", error);
     req.flash("error", "Error creating folder");
@@ -44,6 +49,7 @@ async function renderFolder(req, res) {
     user: req.user,
     files,
     folders,
+    currentFolderId: folderId,
     success: req.flash("success"),
     error: req.flash("error"),
   });

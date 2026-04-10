@@ -18,15 +18,15 @@ model User {
 }
 
 model Folder {
-  id        Int      @id @default(autoincrement())
-  name      String
-  userId    Int
-  user      User?    @relation(fields: [userId], references: [id])
-  parentId  Int? // null = root folder
-  parent    Folder?  @relation("FolderToFolder", fields: [parentId], references: [id])
-  children  Folder[] @relation("FolderToFolder")
-  files     File[]
-  createdAt DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  foldername String
+  userId     Int
+  user       User?    @relation(fields: [userId], references: [id])
+  parentId   Int? // null = root folder
+  parent     Folder?  @relation("FolderToFolder", fields: [parentId], references: [id])
+  children   Folder[] @relation("FolderToFolder")
+  files      File[]
+  createdAt  DateTime @default(now())
 }
 
 model File {

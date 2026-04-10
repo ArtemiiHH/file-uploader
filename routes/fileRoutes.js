@@ -11,7 +11,4 @@ fileRouter.post(
   fileController.uploadFile,
 );
 
-// Create file
-fileRouter.post("/files/new", fileController.createFile);
-
 export default fileRouter;

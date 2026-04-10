@@ -35,9 +35,6 @@ async function uploadFile(req, res) {
   }
 }
 
-// Create file
-async function createFile(req, res) {}
-
 // Delete file
 async function deleteFile(req, res) {}
 
@@ -47,4 +44,4 @@ async function downloadFile(req, res) {}
 // Delete file
 async function viewFileDetails(req, res) {}
 
-export default { uploadFile, createFile };
+export default { uploadFile };

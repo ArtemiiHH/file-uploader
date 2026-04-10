@@ -59,6 +59,18 @@ async function renderFolder(req, res) {
 async function renameFolder(req, res) {}
 
 // Delete folder
-async function deleteFolder(req, res) {}
+async function deleteFolder(req, res) {
+  try {
+    await prisma.folder.delete({
+      where: { id: parseInt(req.params.id) },
+    });
+    req.flash("success", "Folder deleted successfully");
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.error("Upload error: ", error);
+    req.flash("error", "Error deleting folder");
+    res.redirect("/dashboard");
+  }
+}
 
-export default { createFolder, renderFolder };
+export default { createFolder, renderFolder, renameFolder, deleteFolder };

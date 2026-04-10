@@ -5,15 +5,17 @@
 
     <!-- Folders -->
     <% folders.forEach(folder => { %>
-      <div class="folder-card">
-        <p><%= folder.foldername %></p>
+      <div class="folder-card" data-id="<%= folder.id %>">
+        <p class="file-name"><%= folder.foldername %></p>
+        <p class="file-icon">📁</p>
       </div>
     <% }) %>
 
     <!-- Files -->
     <% files.forEach(file => { %>
       <div class="file-card">
-        <a href="<%= file.url %>" target="_blank"><%= file.filename %></a>
+        <a href="<%= file.url %>" target="_blank"><p class="file-name"><%= file.filename %></p></a>
+        <p class="file-icon">📄</p>
       </div>
     <% }) %>
   <% } %>

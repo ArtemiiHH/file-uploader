@@ -1,3 +1,4 @@
+// MODALS
 const fileModal = document
   .getElementById("fileModal")
   .closest(".modal-container");
@@ -26,5 +27,13 @@ document.querySelectorAll(".modal-container").forEach((container) => {
     if (e.target === container) {
       container.classList.remove("modal-container-active");
     }
+  });
+});
+
+// FOLDER DOUBLE CLICK
+document.querySelectorAll(".folder-card").forEach((folder) => {
+  folder.addEventListener("dbclick", () => {
+    const folderId = folder.dataset.id;
+    window.location.href = `/folders/${folderId}`;
   });
 });

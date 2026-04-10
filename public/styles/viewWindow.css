@@ -1,15 +1,26 @@
 .view-window {
-  border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   padding: 20px;
   min-height: 100vh;
 }
 
-.view-window div {
-  border: 1px solid black;
-  height: 200px;
-  width: 300px;
+/* Folders/Files */
+.folder-card,
+.file-card {
+  background-color: rgb(237, 237, 237);
+  border-radius: 20px;
+  height: fit-content;
+  width: 200px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.file-icon {
+  font-size: 4rem;
+  text-align: center;
+  height: 100%;
+  padding: 20px;
 }

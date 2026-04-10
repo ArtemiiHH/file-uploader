@@ -13,8 +13,13 @@ async function renderSignUpForm(req, res) {
 }
 // Render Dashboard (GET)
 async function renderDashboard(req, res) {
+  const files = prisma.file.findMany({
+    where: { userId: req.user.id },
+  });
+
   res.render("dashboard", {
     user: req.user,
+    files: files,
     success: req.flash("success"),
     error: req.flash("error"),
   });

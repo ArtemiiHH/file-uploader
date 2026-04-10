@@ -1,2 +1,10 @@
 <!-- View Window -->
-<section class="view-window"></section>
+<section class="view-window">
+
+  <!-- File -->
+  <% files.forEach(file => { %>
+    <div class="file">
+      <p><%= file.filename %></p>
+    </div>
+  <% }) %>
+</section>

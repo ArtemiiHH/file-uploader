@@ -2,7 +2,24 @@ import prisma from "../lib/prisma.js";
 
 // Create Folder
 async function createFolder(req, res) {
-  const { folder } = req.body;
+  try {
+    const { folder } = req.body;
+
+    await prisma.folder.create({
+      data: {
+        foldername: folder,
+        userId: req.user.id,
+        parentId: req.user.parentId,
+      },
+    });
+
+    req.flash("success", "Folder created successfully");
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.error("Upload error: ", error);
+    req.flash("error", "Error creating folder");
+    res.redirect("/dashboard");
+  }
 }
 
 export default { createFolder };

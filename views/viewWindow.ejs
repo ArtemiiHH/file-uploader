@@ -3,11 +3,22 @@
 
   <!-- File -->
   <% if (files.length === 0) { %>
-    <h3>No files added yet. Click "new" to add files</h3>
+    <h3>Nothing added yet. Click "new" to add files</h3>
   <% } else { %>
     <% files.forEach(file => { %>
       <div class="file-card">
         <p><%= file.filename %></p>
+      </div>
+    <% }) %>
+  <% } %>
+
+  <!-- Folder -->
+  <% if (folders.length === 0) { %>
+    <h3>Nothing added yet. Click "new" to add files</h3>
+  <% } else { %>
+    <% folders.forEach(folder => { %>
+      <div class="folder-card">
+        <p><%= folder.foldername %></p>
       </div>
     <% }) %>
   <% } %>

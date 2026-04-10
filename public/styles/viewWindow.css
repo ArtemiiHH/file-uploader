@@ -13,11 +13,8 @@
 .file-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   border-radius: 20px;
-  height: fit-content;
+  height: auto;
   width: 150px;
   padding: 20px;
   cursor: pointer;
@@ -30,4 +27,17 @@
 
 .file-icon {
   font-size: 5rem;
+}
+
+.dot-menu {
+  background: none;
+  border: none;
+  font-size: 2rem;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

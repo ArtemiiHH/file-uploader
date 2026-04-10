@@ -6,16 +6,22 @@
     <!-- Folders -->
     <% folders.forEach(folder => { %>
       <div class="folder-card" data-id="<%= folder.id %>">
-        <p class="file-icon">📁</p>
-        <p class="file-name"><%= folder.foldername %></p>
+        <p class="dot-menu">...</p>
+        <div class="card-details">
+          <p class="file-icon">📁</p>
+          <p class="file-name"><%= folder.foldername %></p>
+        </div>
       </div>
     <% }) %>
 
     <!-- Files -->
     <% files.forEach(file => { %>
       <div class="file-card">
-        <p class="file-icon">📄</p>
-        <a href="<%= file.url %>" target="_blank"><p class="file-name"><%= file.filename %></p></a>
+        <p class="dot-menu">...</p>
+        <div class="card-details">
+          <p class="file-icon">📄</p>
+          <a href="<%= file.url %>" target="_blank"><p class="file-name"><%= file.filename %></p></a>
+        </div>
       </div>
     <% }) %>
   <% } %>

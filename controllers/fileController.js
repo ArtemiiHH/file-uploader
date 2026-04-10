@@ -22,12 +22,17 @@ async function uploadFile(req, res) {
         filename: req.file.originalname,
         url: result.secure_url,
         userId: req.user.id,
-        folderId: req.body.folderId ? parseInt(req.body.folderId) : null,
+        folderId: req.params.folderId ? parseInt(req.params.folderId) : null,
       },
     });
 
     req.flash("success", "File uploaded successfully");
-    res.redirect("/dashboard");
+
+    const redirectTo = req.params.folderId
+      ? `/folders/${req.params.folderId}`
+      : "/dashboard";
+
+    res.redirect(redirectTo);
   } catch (error) {
     console.error("Upload error: ", error);
     req.flash("error", "Error uploading file");

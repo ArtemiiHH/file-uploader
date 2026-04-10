@@ -1,6 +1,6 @@
 // Middleware to ensure user is authenticated
 const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated) {
+  if (req.isAuthenticated()) {
     return next();
   }
 

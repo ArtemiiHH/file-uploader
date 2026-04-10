@@ -4,9 +4,16 @@ import upload from "../config/multer.js";
 
 const fileRouter = Router();
 
-// Upload file
+// Upload file (ROOT)
 fileRouter.post(
   "/files/upload",
+  upload.single("file"),
+  fileController.uploadFile,
+);
+
+// Upload file inside a folder
+fileRouter.post(
+  "/files/upload/:folderId",
   upload.single("file"),
   fileController.uploadFile,
 );

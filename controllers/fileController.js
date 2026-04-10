@@ -20,7 +20,7 @@ async function uploadFile(req, res) {
     await prisma.file.create({
       data: {
         filename: req.file.originalname,
-        storagePath: result.secure_url,
+        url: result.secure_url,
         mimetype: req.file.mimetype,
         size: req.file.size,
         userId: req.user.id,
@@ -36,4 +36,7 @@ async function uploadFile(req, res) {
   }
 }
 
-export default { uploadFile };
+// Create file
+async function createFile(req, res) {}
+
+export default { uploadFile, createFile };

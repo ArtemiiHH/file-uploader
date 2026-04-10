@@ -55,4 +55,10 @@ async function renderFolder(req, res) {
   });
 }
 
+// Update folder
+async function renameFolder(req, res) {}
+
+// Delete folder
+async function deleteFolder(req, res) {}
+
 export default { createFolder, renderFolder };

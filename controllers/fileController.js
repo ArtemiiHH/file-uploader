@@ -19,13 +19,17 @@ async function uploadFile(req, res) {
     // Save Cloudinary URL to DB
     await prisma.file.create({
       data: {
+        filename: req.file.originalname,
         url: result.secure_url,
+        userId: req.user.id,
+        folderId: req.body.folderId ? parseInt(req.body.folderId) : null,
       },
     });
 
     req.flash("success", "File uploaded successfully");
     res.redirect("/dashboard");
   } catch (error) {
+    console.error("Upload error: ", error);
     req.flash("error", "Error uploading file");
     res.redirect("/dashboard");
   }

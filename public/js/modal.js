@@ -37,3 +37,17 @@ document.querySelectorAll(".folder-card").forEach((folder) => {
     window.location.href = `/folders/${folderId}`;
   });
 });
+
+// THREE DOTS DROP DOWN
+document.querySelectorAll(".dot-menu").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const dropdown = btn.nextElementSibling;
+    dropdown.classList.toggle("active");
+  });
+});
+
+// Close when clicking outside
+document.addEventListener("click", () => {
+  document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("active"));
+});

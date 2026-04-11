@@ -24,7 +24,7 @@
 
 .folder-card:hover,
 .file-card:hover {
-  background-color: rgb(237, 237, 237);
+  background-color: #0c0d15;;
 }
 
 .file-icon {
@@ -63,6 +63,7 @@
   background: none;
   border: none;
   outline: none;
+  color: white;
 }
 
 .dot-menu:hover {

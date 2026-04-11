@@ -3,5 +3,18 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
-  border: 1px solid black;
+  border-bottom: 1px solid #093f3a;
+}
+
+.log-out-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: 1px solid #093f3a;
+  border-radius: 10px;
+  background: none;
+  color: white;
+}
+
+.log-out-btn:hover {
+  opacity: 0.7;
 }

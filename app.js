@@ -11,6 +11,7 @@ import folderRouter from "./routes/folderRoutes.js";
 import { fileURLToPath } from "node:url";
 import ensureAuthenticated from "./middleware/ensureAuthenticated.js";
 import flash from "connect-flash";
+import methodOverride from "method-override";
 
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -22,6 +23,7 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(methodOverride("_method"));
 
 app.use(
   session({

@@ -51,7 +51,9 @@ async function deleteFile(req, res) {
 
     req.flash("success", "File deleted successfully");
 
-    const redirectTo = file.folderId ? `/files/${file.folderId}` : "/dashboard";
+    const redirectTo = file.folderId
+      ? `/folders/${file.folderId}`
+      : "/dashboard";
 
     res.redirect(redirectTo);
   } catch (error) {

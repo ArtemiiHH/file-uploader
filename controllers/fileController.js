@@ -41,13 +41,17 @@ async function uploadFile(req, res) {
 // Delete file
 async function deleteFile(req, res) {
   try {
-    await prisma.file.delete({
-      where: { id: req.params.id },
+    const file = await prisma.file.findUnique({
+      where: { id: parseInt(req.params.id) },
     });
 
-    req.flash("success", "File uploaded successfully");
+    await prisma.file.delete({
+      where: { id: parseInt(req.params.id) },
+    });
 
-    const redirectTo = req.params.id ? `/files/${req.params.id}` : "/dashboard";
+    req.flash("success", "File deleted successfully");
+
+    const redirectTo = file.folderId ? `/files/${file.folderId}` : "/dashboard";
 
     res.redirect(redirectTo);
   } catch (error) {

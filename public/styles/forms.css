@@ -86,3 +86,18 @@ input::placeholder {
   opacity: 0.7;
   cursor: pointer;
 }
+
+form a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+form a:hover {
+  text-decoration: underline;
+}
+
+form hr {
+  border: 1px solid #093f3a;
+  opacity: 0.7;
+}

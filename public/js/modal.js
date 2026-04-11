@@ -18,6 +18,7 @@ document.querySelectorAll(".close-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     folderModal.classList.remove("modal-container-active");
     fileModal.classList.remove("modal-container-active");
+    renameFolderModal.classList.remove("modal-container-active");
   });
 });
 
@@ -39,7 +40,7 @@ document.querySelectorAll(".folder-card").forEach((folder) => {
 });
 
 // THREE DOTS DROP DOWN
-document.querySelectorAll(".dot-menu").forEach(btn => {
+document.querySelectorAll(".dot-menu").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.stopPropagation();
     const dropdown = btn.nextElementSibling;
@@ -49,5 +50,21 @@ document.querySelectorAll(".dot-menu").forEach(btn => {
 
 // Close when clicking outside
 document.addEventListener("click", () => {
-  document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("active"));
+  document
+    .querySelectorAll(".dropdown")
+    .forEach((d) => d.classList.remove("active"));
+});
+
+// SET RENAME FOLDER FORM ACTION
+const renameFolderModal = document
+  .getElementById("renameFolderModal")
+  .closest(".modal-container");
+
+document.querySelectorAll(".rename-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const folderId = btn.dataset.id;
+    const form = document.getElementById("renameFolderForm");
+    form.action = `/folders/${folderId}/rename`;
+    renameFolderModal.classList.add("modal-container-active");
+  });
 });

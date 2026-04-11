@@ -55,8 +55,22 @@ async function renderFolder(req, res) {
   });
 }
 
-// Update folder
-async function renameFolder(req, res) {}
+// Rename folder
+async function renameFolder(req, res) {
+  try {
+    await prisma.folder.update({
+      where: { id: parseInt(req.params.id) },
+      data: { foldername: req.body.foldername },
+    });
+
+    req.flash("success", "Folder renamed successfully");
+    res.redirect("back");
+  } catch (error) {
+    console.error("Rename error: ", error);
+    req.flash("error", "Error renaming folder");
+    res.redirect("back");
+  }
+}
 
 // Delete folder
 async function deleteFolder(req, res) {

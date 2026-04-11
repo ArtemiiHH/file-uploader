@@ -5,22 +5,20 @@
 
     <!-- Folders -->
     <% folders.forEach(folder => { %>
-  <div class="folder-card" data-id="<%= folder.id %>">
-    <button class="dot-menu">⋮</button>
-    <div class="dropdown">
-      <form action="">
-        <button type="submit">Rename</button>
-      </form>
-      <form action="/folders/<%= folder.id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete</button>
-      </form>
-    </div>
-    <div class="card-details">
-      <p class="file-icon">📁</p>
-      <p class="file-name"><%= folder.foldername %></p>
-    </div>
-  </div>
-<% }) %>
+      <div class="folder-card" data-id="<%= folder.id %>">
+        <button class="dot-menu">⋮</button>
+        <div class="dropdown">
+          <button class="rename-btn" data-id="<%= folder.id %>">Rename</button>
+          <form action="/folders/<%= folder.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+        <div class="card-details">
+          <p class="file-icon">📁</p>
+          <p class="file-name"><%= folder.foldername %></p>
+        </div>
+      </div>
+    <% }) %>
 
     <!-- Files -->
     <% files.forEach(file => { %>

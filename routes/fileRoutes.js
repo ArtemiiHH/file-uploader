@@ -18,4 +18,7 @@ fileRouter.post(
   fileController.uploadFile,
 );
 
+// Delete file
+fileRouter.delete("/files/:id", fileController.deleteFile);
+
 export default fileRouter;

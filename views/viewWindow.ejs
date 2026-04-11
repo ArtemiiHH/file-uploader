@@ -24,10 +24,12 @@
     <% files.forEach(file => { %>
       <div class="file-card" data-id="<%= file.id %>">
         <button class="dot-menu">⋮</button>
-        <ul class="dropdown">
-          <li><a href="<%= file.url %>" target="_blank">Download</a></li>
-          <li>Delete</li>
-        </ul>
+        <div class="dropdown">
+          <a href="<%= file.url %>" target="_blank"><button>Download</button></a>
+          <form action="/files/<%= file.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
         <div class="card-details">
           <p class="file-icon">📄</p>
           <p class="file-name"><%= file.filename %></p>

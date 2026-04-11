@@ -3,8 +3,6 @@ import cloudinary from "../config/cloudinary.js";
 
 // Upload File
 async function uploadFile(req, res) {
-  console.log("req.file:", req.file);
-  console.log("req.body:", req.body);
   try {
     // Upload buffer to Cloudinary
     const result = await new Promise((resolve, reject) => {
@@ -41,12 +39,22 @@ async function uploadFile(req, res) {
 }
 
 // Delete file
-async function deleteFile(req, res) {}
+async function deleteFile(req, res) {
+  try {
+    await prisma.file.delete({
+      where: { id: req.params.id },
+    });
 
-// Download file
-async function downloadFile(req, res) {}
+    req.flash("success", "File uploaded successfully");
 
-// Delete file
-async function viewFileDetails(req, res) {}
+    const redirectTo = req.params.id ? `/files/${req.params.id}` : "/dashboard";
 
-export default { uploadFile };
+    res.redirect(redirectTo);
+  } catch (error) {
+    console.error("Upload error: ", error);
+    req.flash("error", "Error deleting file");
+    res.redirect("/dashboard");
+  }
+}
+
+export default { uploadFile, deleteFile };

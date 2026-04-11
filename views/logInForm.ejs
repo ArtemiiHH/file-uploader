@@ -4,29 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log In</title>
+    <link rel="stylesheet" href="/styles/forms.css" />
   </head>
   <body>
     <section class="form-container">
       <!-- Log In Form -->
       <form action="/login" method="POST">
         <h2>Log In</h2>
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          class="form-input"
-          id="email"
-          name="email"
-          required
-        />
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          class="form-input"
-          id="password"
-          name="password"
-          required
-        />
-        <button type="submit">Log In</button>
+        <div class="input-groups">
+          <div class="input-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              class="form-input"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              class="form-input"
+              id="password"
+              name="password"
+              required
+            />
+          </div>
+        </div>
+        <button class="log-in-btn" type="submit">Log In</button>
         <hr />
         <p>Don't have an account? <a href="/signup">Sign Up</a></p>
       </form>

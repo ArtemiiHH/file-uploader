@@ -2,8 +2,19 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
   padding: 12px;
   border-top: 1px solid #093f3a;
   background-color: #121420;
-  color: white
+  color: gray
+}
+
+footer a {
+  text-decoration: none;
+  font-weight: 600;
+  color: gray;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }

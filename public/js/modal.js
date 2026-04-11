@@ -5,6 +5,9 @@ const fileModal = document
 const folderModal = document
   .getElementById("folderModal")
   .closest(".modal-container");
+const renameFolderModal = document
+  .getElementById("renameFolderModal")
+  .closest(".modal-container");
 
 document.getElementById("newFolderBtn").addEventListener("click", () => {
   folderModal.classList.add("modal-container-active");
@@ -56,15 +59,11 @@ document.addEventListener("click", () => {
 });
 
 // SET RENAME FOLDER FORM ACTION
-const renameFolderModal = document
-  .getElementById("renameFolderModal")
-  .closest(".modal-container");
-
 document.querySelectorAll(".rename-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     const folderId = btn.dataset.id;
     const form = document.getElementById("renameFolderForm");
-    form.action = `/folders/${folderId}/rename`;
+    form.action = `/folders/${folderId}`;
     renameFolderModal.classList.add("modal-container-active");
   });
 });

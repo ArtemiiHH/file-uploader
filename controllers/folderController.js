@@ -64,11 +64,20 @@ async function renameFolder(req, res) {
     });
 
     req.flash("success", "Folder renamed successfully");
-    res.redirect("back");
+
+    const folder = await prisma.folder.findUnique({
+      where: { id: parseInt(req.params.id) },
+    });
+
+    const redirectTo = folder.parentId
+      ? `/folders/${folder.parentId}` 
+      : "dashboard";
+
+    res.redirect(redirectTo);
   } catch (error) {
     console.error("Rename error: ", error);
     req.flash("error", "Error renaming folder");
-    res.redirect("back");
+    res.redirect("/dashboard");
   }
 }
 

@@ -13,7 +13,7 @@ folderRouter.get("/folders/:id", folderController.renderFolder);
 folderRouter.post("/folders/:parentId/new", folderController.createFolder);
 
 // Rename folder
-folderRouter.put("/folders/:id/rename", folderController.renameFolder);
+folderRouter.post("/folders/:id", folderController.renameFolder);
 
 // Delete folder
 folderRouter.delete("/folders/:id", folderController.deleteFolder);
